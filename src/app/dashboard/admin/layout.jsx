@@ -1,0 +1,22 @@
+import DashboardSidebar from "@/components/dashboard/DashboardSidebar";
+
+const adminNavItems = [
+    { href: "/dashboard/admin", label: "Overview", icon: "LayoutDashboard" },
+    { href: "/dashboard/admin/users", label: "Manage Users", icon: "Users" },
+    { href: "/dashboard/admin/doctors", label: "Manage Doctors", icon: "Stethoscope" },
+    { href: "/dashboard/admin/appointments", label: "Appointments", icon: "CalendarCheck" },
+    { href: "/dashboard/admin/payments", label: "Payments", icon: "CreditCard" },
+    { href: "/dashboard/admin/analytics", label: "Analytics", icon: "BarChart2" },
+    { href: "/dashboard/profile", label: "Profile", icon: "User" },
+];
+
+export default function AdminDashboardLayout({ children }) {
+    return (
+        <div className="min-h-screen bg-gray-50 dark:bg-gray-950 flex">
+            <DashboardSidebar navItems={adminNavItems} role="admin" />
+            <main className="flex-1 min-w-0 p-6 lg:p-8">
+                {children}
+            </main>
+        </div>
+    );
+}
