@@ -98,7 +98,7 @@ export default function PatientAppointmentsPage() {
                     <AlertCircle className="w-12 h-12 text-gray-300 dark:text-gray-600 mx-auto mb-3" />
                     <h3 className="font-semibold text-gray-700 dark:text-gray-300 mb-1">No appointments yet</h3>
                     <p className="text-sm text-gray-400 dark:text-gray-500">
-                        <a href="/find-doctors" className="text-sky-500 hover:underline">Find a doctor</a> and book your first appointment.
+                        <Link href="/find-doctors" className="text-sky-500 hover:underline">Find a doctor</Link> and book your first appointment.
                     </p>
                 </div>
             ) : (

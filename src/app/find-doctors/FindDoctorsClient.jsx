@@ -68,10 +68,7 @@ export default function FindDoctorsClient() {
         return () => clearTimeout(timeout);
     }, [fetchDoctors]);
 
-    // reset to page 1 on filter change
-    useEffect(() => {
-        setPage(1);
-    }, [search, specialization, sortBy]);
+    // reset to page 1 on filter change handled in onChange directly
 
     return (
         <div className="min-h-screen bg-gray-50 dark:bg-gray-950 py-10">
@@ -94,7 +91,7 @@ export default function FindDoctorsClient() {
                                 type="text"
                                 placeholder="Search by doctor name..."
                                 value={search}
-                                onChange={(e) => setSearch(e.target.value)}
+                                onChange={(e) => { setSearch(e.target.value); setPage(1); }}
                                 className="w-full pl-10 pr-4 py-3 rounded-xl text-sm border border-gray-200 dark:border-gray-700 bg-gray-50 dark:bg-gray-800 text-gray-900 dark:text-white focus:outline-none focus:ring-2 focus:ring-sky-400 transition"
                             />
                         </div>
@@ -104,7 +101,7 @@ export default function FindDoctorsClient() {
                             <SlidersHorizontal className="absolute left-3.5 top-1/2 -translate-y-1/2 w-4 h-4 text-gray-400" />
                             <select
                                 value={specialization}
-                                onChange={(e) => setSpecialization(e.target.value)}
+                                onChange={(e) => { setSpecialization(e.target.value); setPage(1); }}
                                 className="w-full pl-10 pr-4 py-3 rounded-xl text-sm border border-gray-200 dark:border-gray-700 bg-gray-50 dark:bg-gray-800 text-gray-900 dark:text-white focus:outline-none focus:ring-2 focus:ring-sky-400 transition appearance-none"
                             >
                                 {SPECIALIZATIONS.map((s) => (
@@ -116,7 +113,7 @@ export default function FindDoctorsClient() {
                         {/* Sort */}
                         <select
                             value={sortBy}
-                            onChange={(e) => setSortBy(e.target.value)}
+                            onChange={(e) => { setSortBy(e.target.value); setPage(1); }}
                             className="w-full px-4 py-3 rounded-xl text-sm border border-gray-200 dark:border-gray-700 bg-gray-50 dark:bg-gray-800 text-gray-900 dark:text-white focus:outline-none focus:ring-2 focus:ring-sky-400 transition appearance-none"
                         >
                             {SORT_OPTIONS.map((opt) => (

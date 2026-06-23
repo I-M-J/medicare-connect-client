@@ -2,7 +2,7 @@ import Stripe from "stripe";
 import { auth } from "@/lib/auth";
 import { headers } from "next/headers";
 
-const stripe = new Stripe(process.env.STRIPE_SECRET_KEY);
+const stripe = new Stripe(process.env.STRIPE_SECRET_KEY || "dummy_key");
 
 export async function POST(request) {
     const session = await auth.api.getSession({ headers: await headers() });

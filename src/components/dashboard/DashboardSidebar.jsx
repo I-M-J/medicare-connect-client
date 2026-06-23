@@ -33,7 +33,7 @@ export default function DashboardSidebar({ navItems, role }) {
         router.push("/");
     };
 
-    const SidebarContent = () => (
+    const sidebarContentNode = (
         <div className="flex flex-col h-full">
             {/* Logo */}
             <div className={`p-5 bg-gradient-to-r ${roleColors[role] || roleColors.patient} text-white`}>
@@ -107,12 +107,12 @@ export default function DashboardSidebar({ navItems, role }) {
 
             {/* Mobile Sidebar */}
             <aside className={`lg:hidden fixed left-0 top-0 h-full w-64 bg-white dark:bg-gray-900 border-r border-gray-100 dark:border-gray-800 z-40 shadow-xl transform transition-transform duration-300 ${mobileOpen ? "translate-x-0" : "-translate-x-full"}`}>
-                <SidebarContent />
+                {sidebarContentNode}
             </aside>
 
             {/* Desktop Sidebar */}
             <aside className="hidden lg:flex flex-col w-64 flex-shrink-0 bg-white dark:bg-gray-900 border-r border-gray-100 dark:border-gray-800 h-screen sticky top-0">
-                <SidebarContent />
+                {sidebarContentNode}
             </aside>
         </>
     );

@@ -1,6 +1,6 @@
 "use client";
 
-import { useState, useEffect } from "react";
+import { useState, useEffect, useCallback } from "react";
 import { useSession, authClient } from "@/lib/auth-client";
 import { toast } from "react-hot-toast";
 import { motion } from "framer-motion";
@@ -13,7 +13,7 @@ export default function PatientReviewsPage() {
     const [reviews, setReviews] = useState([]);
     const [loading, setLoading] = useState(true);
 
-    const fetchReviews = async () => {
+    const fetchReviews = useCallback(async () => {
         if (!session) return;
         setLoading(true);
         try {
@@ -29,11 +29,11 @@ export default function PatientReviewsPage() {
         finally {
             setLoading(false);
         }
-    };
+    }, [session]);
 
     useEffect(() => {
         fetchReviews();
-    }, [session]);
+    }, [fetchReviews]);
 
     if (loading) {
         return (

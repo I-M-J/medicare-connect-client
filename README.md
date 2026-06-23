@@ -1,36 +1,47 @@
-This is a [Next.js](https://nextjs.org) project bootstrapped with [`create-next-app`](https://github.com/vercel/next.js/tree/canary/packages/create-next-app).
+# MediCare Connect - Client
 
-## Getting Started
+A modern, full-stack healthcare appointment and management system.
 
-First, run the development server:
+## 🚀 Features
 
-```bash
-npm run dev
-# or
-yarn dev
-# or
-pnpm dev
-# or
-bun dev
-```
+- **Authentication**: JWT-based authentication using Better-Auth.
+- **Role-based Dashboards**: Custom interfaces for Patients, Doctors, and Admins.
+- **Doctor Discovery**: Search, filter by specialty, and sort by fee/rating.
+- **Appointments**: Two-step booking modal with Stripe payment integration.
+- **Analytics**: Admin dashboard with Recharts for visual data representation.
+- **Dark Mode**: Fully supported using `next-themes`.
+- **Animations**: Smooth transitions powered by Framer Motion.
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+## 🛠️ Tech Stack
 
-You can start editing the page by modifying `app/page.js`. The page auto-updates as you edit the file.
+- **Framework**: Next.js (App Router)
+- **Styling**: Tailwind CSS
+- **Animations**: Framer Motion
+- **Icons**: Lucide React
+- **Payments**: Stripe Checkout
+- **Charts**: Recharts
+- **Auth**: Better-Auth
 
-This project uses [`next/font`](https://nextjs.org/docs/app/building-your-application/optimizing/fonts) to automatically optimize and load [Geist](https://vercel.com/font), a new font family for Vercel.
+## 📦 Setup & Run
 
-## Learn More
+1. Clone the repository and navigate to the client folder.
+2. Install dependencies:
+   ```bash
+   npm install
+   ```
+3. Set up your `.env.local`:
+   ```env
+   NEXT_PUBLIC_SERVER_URL=http://localhost:5000
+   NEXT_PUBLIC_STRIPE_PUBLISHABLE_KEY=pk_test_...
+   ```
+4. Run the development server:
+   ```bash
+   npm run dev
+   ```
+5. Open [http://localhost:3000](http://localhost:3000) in your browser.
 
-To learn more about Next.js, take a look at the following resources:
+## 👥 User Roles
 
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
-
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js) - your feedback and contributions are welcome!
-
-## Deploy on Vercel
-
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
-
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/app/building-your-application/deploying) for more details.
+- **Patient**: Can search doctors, book appointments, make payments, and leave reviews.
+- **Doctor**: Can set availability, manage appointment requests, and write prescriptions.
+- **Admin**: Verifies doctors, manages users, and views platform analytics.

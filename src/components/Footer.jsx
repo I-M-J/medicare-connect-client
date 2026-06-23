@@ -1,5 +1,6 @@
 import Link from "next/link";
-import { Stethoscope, Phone, Mail, MapPin, Facebook, Twitter, Linkedin, Instagram } from "lucide-react";
+import { Stethoscope, Phone, Mail, MapPin } from "lucide-react";
+import { FaFacebook, FaTwitter, FaLinkedin, FaInstagram } from "react-icons/fa";
 
 const quickLinks = [
     { href: "/", label: "Home" },
@@ -41,7 +42,7 @@ export default function Footer() {
                             <span className="text-sm text-red-400 font-semibold">Emergency: 999</span>
                         </div>
                         <div className="flex items-center gap-3 pt-1">
-                            {[Facebook, Twitter, Linkedin, Instagram].map((Icon, i) => (
+                            {[FaFacebook, FaTwitter, FaLinkedin, FaInstagram].map((Icon, i) => (
                                 <a
                                     key={i}
                                     href="#"
