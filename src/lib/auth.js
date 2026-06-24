@@ -2,6 +2,7 @@ import { betterAuth } from "better-auth";
 import { mongodbAdapter } from "@better-auth/mongo-adapter";
 import { MongoClient } from "mongodb";
 import { nextCookies } from "better-auth/next-js";
+import { jwt } from "better-auth/plugins";
 
 const client = new MongoClient(process.env.MONGODB_URI);
 
@@ -39,14 +40,11 @@ export const auth = betterAuth({
     },
     secret: process.env.BETTER_AUTH_SECRET,
     baseURL: process.env.BETTER_AUTH_URL || "http://localhost:3000",
-    plugins: [nextCookies()],
+    plugins: [nextCookies(), jwt()],
     session: {
         cookieCache: {
             enabled: true,
             maxAge: 5 * 60,
         },
-    },
-    jwt: {
-        enabled: true,
     },
 });
