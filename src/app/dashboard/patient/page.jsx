@@ -75,6 +75,25 @@ export default function PatientDashboardPage() {
                         </div>
                     </div>
                 </div>
+
+                {/* Become a Doctor CTA */}
+                <div className="mt-8 bg-gradient-to-br from-sky-500 to-cyan-400 rounded-2xl p-8 text-white shadow-lg shadow-sky-500/20 relative overflow-hidden">
+                    <div className="absolute right-0 top-0 w-64 h-64 bg-white/10 rounded-full blur-3xl -translate-y-1/2 translate-x-1/3"></div>
+                    <div className="relative z-10 flex flex-col sm:flex-row items-center justify-between gap-6">
+                        <div>
+                            <h2 className="text-xl font-bold mb-2">Are you a Medical Professional?</h2>
+                            <p className="text-sky-50 max-w-lg text-sm">
+                                Join our platform to manage your appointments, write prescriptions, and reach more patients easily.
+                            </p>
+                        </div>
+                        <Link
+                            href="/dashboard/doctor/profile"
+                            className="whitespace-nowrap px-6 py-3 bg-white text-sky-600 font-bold rounded-xl shadow-sm hover:bg-sky-50 hover:scale-105 transition-all"
+                        >
+                            Apply as a Doctor
+                        </Link>
+                    </div>
+                </div>
             </motion.div>
         </div>
     );

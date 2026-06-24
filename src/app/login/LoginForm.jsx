@@ -9,6 +9,8 @@ import { toast } from "react-hot-toast";
 import { motion } from "framer-motion";
 import { Eye, EyeOff, Mail, Lock, Stethoscope, LogIn } from "lucide-react";
 
+const SERVER_URL = process.env.NEXT_PUBLIC_SERVER_URL || "http://localhost:5000";
+
 export default function LoginForm() {
     const router = useRouter();
     const [showPassword, setShowPassword] = useState(false);
@@ -29,6 +31,13 @@ export default function LoginForm() {
                 toast.error(result.error.message || "Invalid email or password");
                 return;
             }
+
+            // Sync role to ensure Better-Auth session matches Express backend
+            await fetch(`${SERVER_URL}/users/sync-role`, {
+                method: "POST",
+                headers: { "Content-Type": "application/json" },
+                body: JSON.stringify({ email: data.email }),
+            });
 
             toast.success("Welcome back!");
             router.push("/dashboard/patient");
