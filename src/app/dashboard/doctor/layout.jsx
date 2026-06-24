@@ -5,7 +5,7 @@ const doctorNavItems = [
     { href: "/dashboard/doctor/appointments", label: "Appointments", icon: "CalendarCheck" },
     { href: "/dashboard/doctor/prescriptions", label: "Prescriptions", icon: "FileText" },
     { href: "/dashboard/doctor/profile", label: "My Profile", icon: "User" },
-    { href: "/dashboard/profile", label: "Account Settings", icon: "Settings" },
+    { href: "/dashboard/doctor/settings", label: "Account Settings", icon: "Settings" },
 ];
 
 export default function DoctorDashboardLayout({ children }) {

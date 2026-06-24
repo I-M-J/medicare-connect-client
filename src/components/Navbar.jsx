@@ -41,6 +41,13 @@ export default function Navbar() {
         return "/dashboard/patient";
     };
 
+    const getProfileLink = () => {
+        const role = session?.user?.role;
+        if (role === "admin") return "/dashboard/admin/profile";
+        if (role === "doctor") return "/dashboard/doctor/settings";
+        return "/dashboard/patient/profile";
+    };
+
     return (
         <nav className="sticky top-0 z-50 bg-white/90 dark:bg-gray-950/90 backdrop-blur-md border-b border-sky-100 dark:border-sky-900/30 shadow-sm">
             <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
@@ -121,7 +128,7 @@ export default function Navbar() {
                                             Dashboard
                                         </Link>
                                         <Link
-                                            href="/dashboard/profile"
+                                            href={getProfileLink()}
                                             onClick={() => setDropdownOpen(false)}
                                             className="flex items-center gap-2.5 px-4 py-2 text-sm text-gray-700 dark:text-gray-300 hover:bg-sky-50 dark:hover:bg-sky-900/20 hover:text-sky-600 transition-all"
                                         >

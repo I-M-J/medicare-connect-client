@@ -6,7 +6,7 @@ import { useForm } from "react-hook-form";
 import { toast } from "react-hot-toast";
 import { User, Phone, CheckCircle, Mail, Loader2, Save } from "lucide-react";
 
-export default function GeneralProfilePage() {
+export default function GeneralProfile() {
     const { data: session, isPending } = useSession();
     const [saving, setSaving] = useState(false);
     

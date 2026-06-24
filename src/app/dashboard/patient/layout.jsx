@@ -5,7 +5,7 @@ const patientNavItems = [
     { href: "/dashboard/patient/appointments", label: "My Appointments", icon: "CalendarCheck" },
     { href: "/dashboard/patient/payment-history", label: "Payment History", icon: "CreditCard" },
     { href: "/dashboard/patient/reviews", label: "My Reviews", icon: "Star" },
-    { href: "/dashboard/profile", label: "My Profile", icon: "User" },
+    { href: "/dashboard/patient/profile", label: "My Profile", icon: "User" },
 ];
 
 export default function PatientDashboardLayout({ children }) {
