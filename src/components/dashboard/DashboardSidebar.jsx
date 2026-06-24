@@ -35,18 +35,28 @@ export default function DashboardSidebar({ navItems, role }) {
 
     const sidebarContentNode = (
         <div className="flex flex-col h-full">
-            {/* Logo */}
+            {/* Header */}
             <div className={`p-5 bg-gradient-to-r ${roleColors[role] || roleColors.patient} text-white`}>
-                <div className="flex items-center gap-3">
-                    <div className="w-10 h-10 bg-white/20 rounded-xl flex items-center justify-center flex-shrink-0">
-                        <span className="text-white font-bold text-sm">
-                            {session?.user?.name?.[0]?.toUpperCase() || "U"}
-                        </span>
+                <div className="flex items-center justify-between">
+                    <div className="flex items-center gap-3 min-w-0">
+                        <div className="w-10 h-10 bg-white/20 rounded-xl flex items-center justify-center flex-shrink-0">
+                            <span className="text-white font-bold text-sm">
+                                {session?.user?.name?.[0]?.toUpperCase() || "U"}
+                            </span>
+                        </div>
+                        <div className="min-w-0">
+                            <p className="font-semibold text-sm truncate">{session?.user?.name || "User"}</p>
+                            <p className="text-white/70 text-xs capitalize">{role} Dashboard</p>
+                        </div>
                     </div>
-                    <div className="min-w-0">
-                        <p className="font-semibold text-sm truncate">{session?.user?.name || "User"}</p>
-                        <p className="text-white/70 text-xs capitalize">{role} Dashboard</p>
-                    </div>
+                    {/* Close button — only visible inside mobile drawer */}
+                    <button
+                        className="lg:hidden p-1 rounded-lg hover:bg-white/20 transition-colors flex-shrink-0"
+                        onClick={() => setMobileOpen(false)}
+                        aria-label="Close menu"
+                    >
+                        <X className="w-5 h-5 text-white" />
+                    </button>
                 </div>
             </div>
 
@@ -89,14 +99,6 @@ export default function DashboardSidebar({ navItems, role }) {
 
     return (
         <>
-            {/* Mobile Toggle */}
-            <button
-                className="lg:hidden fixed top-20 left-4 z-40 p-2 bg-white dark:bg-gray-900 rounded-xl shadow-md border border-gray-200 dark:border-gray-700"
-                onClick={() => setMobileOpen(!mobileOpen)}
-            >
-                {mobileOpen ? <X className="w-5 h-5" /> : <Menu className="w-5 h-5" />}
-            </button>
-
             {/* Mobile Overlay */}
             {mobileOpen && (
                 <div
@@ -105,7 +107,7 @@ export default function DashboardSidebar({ navItems, role }) {
                 />
             )}
 
-            {/* Mobile Sidebar */}
+            {/* Mobile Sidebar Drawer */}
             <aside className={`lg:hidden fixed left-0 top-0 h-full w-64 bg-white dark:bg-gray-900 border-r border-gray-100 dark:border-gray-800 z-40 shadow-xl transform transition-transform duration-300 ${mobileOpen ? "translate-x-0" : "-translate-x-full"}`}>
                 {sidebarContentNode}
             </aside>
@@ -114,6 +116,17 @@ export default function DashboardSidebar({ navItems, role }) {
             <aside className="hidden lg:flex flex-col w-64 flex-shrink-0 bg-white dark:bg-gray-900 border-r border-gray-100 dark:border-gray-800 h-screen sticky top-0">
                 {sidebarContentNode}
             </aside>
+
+            {/* Mobile open trigger — inline in content, not floating */}
+            <div className="lg:hidden absolute top-4 left-4 z-20">
+                <button
+                    className="p-2 bg-white dark:bg-gray-900 rounded-xl shadow-md border border-gray-200 dark:border-gray-700 hover:bg-gray-50 dark:hover:bg-gray-800 transition-colors"
+                    onClick={() => setMobileOpen(true)}
+                    aria-label="Open sidebar"
+                >
+                    <Menu className="w-5 h-5 text-gray-600 dark:text-gray-300" />
+                </button>
+            </div>
         </>
     );
 }

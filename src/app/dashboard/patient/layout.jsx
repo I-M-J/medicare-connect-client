@@ -12,7 +12,7 @@ export default function PatientDashboardLayout({ children }) {
     return (
         <div className="min-h-screen bg-gray-50 dark:bg-gray-950 flex">
             <DashboardSidebar navItems={patientNavItems} role="patient" />
-            <main className="flex-1 min-w-0 p-6 lg:p-8">
+            <main className="flex-1 min-w-0 p-6 lg:p-8 relative">
                 {children}
             </main>
         </div>
