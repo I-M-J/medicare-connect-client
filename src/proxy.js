@@ -1,7 +1,7 @@
 import { NextResponse } from "next/server";
 import { betterFetch } from "@better-fetch/fetch";
 
-export async function middleware(request) {
+export async function proxy(request) {
     const { data: session } = await betterFetch("/api/auth/get-session", {
         baseURL: request.nextUrl.origin,
         headers: {
