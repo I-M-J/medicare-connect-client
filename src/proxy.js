@@ -25,6 +25,7 @@ export async function proxy(request) {
         // doctor guard
         if (
             pathname.startsWith("/dashboard/doctor") &&
+            !pathname.startsWith("/dashboard/doctor/profile") &&
             session.user?.role !== "doctor" &&
             session.user?.role !== "admin"
         ) {
