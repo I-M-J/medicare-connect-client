@@ -1,10 +1,12 @@
-import { auth } from "@/lib/auth";
 import { NextResponse } from "next/server";
-import { headers } from "next/headers";
+import { betterFetch } from "@better-fetch/fetch";
 
 export async function middleware(request) {
-    const session = await auth.api.getSession({
-        headers: await headers(),
+    const { data: session } = await betterFetch("/api/auth/get-session", {
+        baseURL: request.nextUrl.origin,
+        headers: {
+            cookie: request.headers.get("cookie") || "",
+        },
     });
 
     const { pathname } = request.nextUrl;
@@ -21,7 +23,11 @@ export async function middleware(request) {
         }
 
         // doctor guard
-        if (pathname.startsWith("/dashboard/doctor") && session.user?.role !== "doctor" && session.user?.role !== "admin") {
+        if (
+            pathname.startsWith("/dashboard/doctor") &&
+            session.user?.role !== "doctor" &&
+            session.user?.role !== "admin"
+        ) {
             return NextResponse.redirect(new URL("/unauthorized", request.url));
         }
     }
