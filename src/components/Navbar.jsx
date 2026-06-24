@@ -156,14 +156,38 @@ export default function Navbar() {
                         )}
                     </div>
 
-                    {/* Mobile Menu Button */}
-                    <button
-                        className="md:hidden p-2 rounded-lg text-gray-600 dark:text-gray-300 hover:bg-sky-50 dark:hover:bg-sky-900/20 transition-all"
-                        onClick={() => setMenuOpen(!menuOpen)}
-                        aria-label="Toggle menu"
-                    >
-                        {menuOpen ? <X className="w-5 h-5" /> : <Menu className="w-5 h-5" />}
-                    </button>
+                    {/* Mobile: avatar + menu button */}
+                    <div className="md:hidden flex items-center gap-2">
+                        {session?.user && (
+                            <button
+                                onClick={() => setMenuOpen(!menuOpen)}
+                                className="flex items-center gap-2 px-2 py-1.5 rounded-xl border border-sky-200 dark:border-sky-800 hover:bg-sky-50 dark:hover:bg-sky-900/20 transition-all"
+                            >
+                                {session.user.image ? (
+                                    <img
+                                        src={session.user.image}
+                                        alt={session.user.name}
+                                        className="w-7 h-7 rounded-full object-cover"
+                                        referrerPolicy="no-referrer"
+                                    />
+                                ) : (
+                                    <div className="w-7 h-7 rounded-full bg-sky-500 flex items-center justify-center text-white text-xs font-bold">
+                                        {session.user.name?.[0]?.toUpperCase() || "U"}
+                                    </div>
+                                )}
+                                <span className="text-sm font-medium text-gray-700 dark:text-gray-200 max-w-[80px] truncate">
+                                    {session.user.name?.split(" ")[0]}
+                                </span>
+                            </button>
+                        )}
+                        <button
+                            className="p-2 rounded-lg text-gray-600 dark:text-gray-300 hover:bg-sky-50 dark:hover:bg-sky-900/20 transition-all"
+                            onClick={() => setMenuOpen(!menuOpen)}
+                            aria-label="Toggle menu"
+                        >
+                            {menuOpen ? <X className="w-5 h-5" /> : <Menu className="w-5 h-5" />}
+                        </button>
+                    </div>
                 </div>
 
                 {/* Mobile Menu */}
@@ -182,17 +206,27 @@ export default function Navbar() {
                         <div className="pt-2 border-t border-sky-100 dark:border-sky-900/30 flex flex-col gap-2">
                             {session?.user ? (
                                 <>
+                                    {/* User info header in mobile menu */}
+                                    <div className="px-3 py-2.5 bg-sky-50 dark:bg-sky-900/20 rounded-xl">
+                                        <p className="text-sm font-semibold text-gray-800 dark:text-white truncate">{session.user.name}</p>
+                                        <p className="text-xs text-gray-500 dark:text-gray-400 truncate">{session.user.email}</p>
+                                        <span className="inline-block mt-1 text-xs font-medium px-2 py-0.5 bg-sky-100 dark:bg-sky-900/40 text-sky-600 dark:text-sky-400 rounded-full capitalize">
+                                            {session.user.role || "patient"}
+                                        </span>
+                                    </div>
                                     <Link
                                         href={getDashboardLink()}
                                         onClick={() => setMenuOpen(false)}
-                                        className="px-3 py-2.5 text-sm font-medium text-sky-600 hover:bg-sky-50 dark:hover:bg-sky-900/20 rounded-lg transition-all"
+                                        className="flex items-center gap-2 px-3 py-2.5 text-sm font-medium text-sky-600 hover:bg-sky-50 dark:hover:bg-sky-900/20 rounded-lg transition-all"
                                     >
+                                        <LayoutDashboard className="w-4 h-4" />
                                         Dashboard
                                     </Link>
                                     <button
                                         onClick={() => { handleSignOut(); setMenuOpen(false); }}
-                                        className="px-3 py-2.5 text-sm font-medium text-red-500 hover:bg-red-50 dark:hover:bg-red-900/10 rounded-lg text-left transition-all"
+                                        className="flex items-center gap-2 px-3 py-2.5 text-sm font-medium text-red-500 hover:bg-red-50 dark:hover:bg-red-900/10 rounded-lg text-left transition-all"
                                     >
+                                        <LogOut className="w-4 h-4" />
                                         Sign Out
                                     </button>
                                 </>
