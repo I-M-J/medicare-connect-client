@@ -102,9 +102,19 @@ export default function DoctorProfilePage() {
             
             const savedData = await res.json();
             
-            // If it was a POST, we need to refresh to get the _id
+            // If it was a POST, we need to refresh the session to pick up the new 'doctor' role
             if (method === "POST") {
-                window.location.reload();
+                await authClient.getSession({
+                    fetchOptions: {
+                        headers: {
+                            "Cache-Control": "no-cache",
+                        }
+                    }
+                });
+                toast.success("Doctor profile created successfully! Redirecting...");
+                setTimeout(() => {
+                    window.location.href = "/dashboard";
+                }, 1500);
             } else {
                 toast.success("Profile updated successfully");
             }

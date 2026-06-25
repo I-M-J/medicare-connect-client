@@ -48,3 +48,43 @@ export const auth = betterAuth({
         },
     },
 });
+
+// Seed admin account programmatically in Better-Auth
+if (process.env.ADMIN_EMAIL && process.env.ADMIN_PASSWORD) {
+    const seedAdminAuth = async () => {
+        try {
+            const db = client.db("medicare_connect_db");
+            const adminEmail = process.env.ADMIN_EMAIL;
+            const existingUser = await db.collection("user").findOne({ email: adminEmail });
+            if (!existingUser) {
+                console.log("Seeding admin account in Better-Auth...");
+                await auth.api.signUpEmail({
+                    body: {
+                        email: adminEmail,
+                        password: process.env.ADMIN_PASSWORD,
+                        name: "MediCare Admin",
+                    }
+                });
+                console.log("Admin account created in Better-Auth.");
+            }
+            // Ensure the role is set to 'admin' in both collections
+            await db.collection("user").updateOne({ email: adminEmail }, { $set: { role: "admin" } });
+            await db.collection("users").updateOne(
+                { email: adminEmail },
+                {
+                    $set: {
+                        name: "MediCare Admin",
+                        role: "admin",
+                        status: "active",
+                        updatedAt: new Date()
+                    }
+                },
+                { upsert: true }
+            );
+            console.log("Admin role and record synchronized successfully.");
+        } catch (err) {
+            console.error("Better-Auth Admin Seeding Error:", err.message);
+        }
+    };
+    seedAdminAuth();
+}

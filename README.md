@@ -40,8 +40,34 @@ A modern, full-stack healthcare appointment and management system.
    ```
 5. Open [http://localhost:3000](http://localhost:3000) in your browser.
 
-## 👥 User Roles
+## 👥 User Roles & Demo Accounts
 
-- **Patient**: Can search doctors, book appointments, make payments, and leave reviews.
-- **Doctor**: Can set availability, manage appointment requests, and write prescriptions.
-- **Admin**: Verifies doctors, manages users, and views platform analytics.
+This project is pre-populated with a rich, relational database of doctors, patients, appointments, payments, reviews, and prescriptions. You can log in with any of the following credentials to test different user flows:
+
+### 🔑 Administrator Account
+* **Role**: Admin
+* **Email**: `admin@medicare.com`
+* **Password**: `Admin@12345`
+* **Key Features**: View platform-wide statistics/charts (users, doctors, revenue, appointments), manage user accounts, verify or reject pending doctor applications.
+
+### 🩺 Doctor Accounts
+All doctors have pre-configured hospital affiliations, experience, consultation fees, and available slots.
+
+| Name | Email | Password | Specialization | Verification Status | Features to Test |
+| :--- | :--- | :--- | :--- | :--- | :--- |
+| **Dr. John Doe** | `dr.john@medicare.com` | `Doctor@123` | Cardiology | Verified | View active appointments, issue prescriptions, read reviews. |
+| **Dr. Sarah Jenkins** | `dr.sarah@medicare.com` | `Doctor@123` | Pediatrics | Verified | Manage appointments, view ratings. |
+| **Dr. Robert Chen** | `dr.robert@medicare.com` | `Doctor@123` | Neurology | Verified | View prescription history, manage schedules. |
+| **Dr. Lisa Wong** | `dr.lisa@medicare.com` | `Doctor@123` | General Medicine | Verified | Multi-day slot availability, view reviews. |
+| **Dr. Alex Mercer** | `dr.alex@medicare.com` | `Doctor@123` | Dermatology | **Pending** | View the restricted "Pending Verification" screen. |
+
+### 👤 Patient Accounts
+These accounts contain mock health records, payment history, and scheduled bookings.
+
+| Name | Email | Password | Existing Data / Patient History |
+| :--- | :--- | :--- | :--- |
+| **Emily Watson** | `patient.emily@medicare.com` | `Patient@123` | Has a completed appointment with Dr. John, a prescription for hypertension, and an active review. |
+| **David Miller** | `patient.david@medicare.com` | `Patient@123` | Has a pending appointment with Dr. Sarah and a cancelled/refunded booking. |
+| **James Wilson** | `patient.james@medicare.com` | `Patient@123` | Has a neurology consult history with Dr. Robert and a medication prescription. |
+| **Sophia Martinez** | `patient.sophia@medicare.com` | `Patient@123` | Has a newly booked pending appointment with Dr. Lisa. |
+

@@ -40,7 +40,7 @@ export default function LoginForm() {
             });
 
             toast.success("Welcome back!");
-            router.push("/dashboard/patient");
+            router.push("/dashboard");
         }
         catch (error) {
             toast.error("Something went wrong. Please try again.");
@@ -54,7 +54,7 @@ export default function LoginForm() {
     const handleGoogleLogin = async () => {
         setIsGoogleLoading(true);
         try {
-            await signIn.social({ provider: "google", callbackURL: "/dashboard/patient" });
+            await signIn.social({ provider: "google", callbackURL: "/dashboard" });
         }
         catch (error) {
             toast.error("Google sign-in failed. Please try again.");

@@ -46,7 +46,7 @@ export default function RegisterForm() {
             });
 
             toast.success("Account created successfully! Welcome to MediCare Connect.");
-            router.push("/dashboard/patient");
+            router.push("/dashboard");
         }
         catch (error) {
             toast.error("Something went wrong. Please try again.");
@@ -60,7 +60,7 @@ export default function RegisterForm() {
     const handleGoogleSignUp = async () => {
         setIsGoogleLoading(true);
         try {
-            await signIn.social({ provider: "google", callbackURL: "/dashboard/patient" });
+            await signIn.social({ provider: "google", callbackURL: "/dashboard" });
         }
         catch (error) {
             toast.error("Google sign-up failed. Please try again.");
@@ -149,7 +149,14 @@ export default function RegisterForm() {
                                     type={showPassword ? "text" : "password"}
                                     placeholder="Min. 6 characters"
                                     className={`w-full pl-10 pr-10 py-3 rounded-xl text-sm border ${errors.password ? "border-red-400 bg-red-50 dark:bg-red-900/10" : "border-gray-200 dark:border-gray-700 bg-gray-50 dark:bg-gray-800"} text-gray-900 dark:text-white focus:outline-none focus:ring-2 focus:ring-sky-400 transition`}
-                                    {...register("password", { required: "Password is required", minLength: { value: 6, message: "Min 6 characters required" } })}
+                                    {...register("password", {
+                                        required: "Password is required",
+                                        minLength: { value: 6, message: "Password must be at least 6 characters" },
+                                        pattern: {
+                                            value: /^(?=.*[0-9])(?=.*[!@#$%^&*(),.?":{}|<>_\-+=/[\]\\])/,
+                                            message: "Password must contain at least one number and one special character"
+                                        }
+                                    })}
                                 />
                                 <button
                                     type="button"

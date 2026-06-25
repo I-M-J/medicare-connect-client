@@ -1,3 +1,6 @@
+import { redirect } from "next/navigation";
+import { auth } from "@/lib/auth";
+import { headers } from "next/headers";
 import DashboardSidebar from "@/components/dashboard/DashboardSidebar";
 
 const adminNavItems = [
@@ -10,7 +13,19 @@ const adminNavItems = [
     { href: "/dashboard/admin/profile", label: "Profile", icon: "User" },
 ];
 
-export default function AdminDashboardLayout({ children }) {
+export default async function AdminDashboardLayout({ children }) {
+    const session = await auth.api.getSession({
+        headers: await headers()
+    });
+
+    if (!session) {
+        redirect("/login");
+    }
+
+    if (session.user?.role !== "admin") {
+        redirect("/unauthorized");
+    }
+
     return (
         <div className="min-h-screen bg-gray-50 dark:bg-gray-950 flex">
             <DashboardSidebar navItems={adminNavItems} role="admin" />
