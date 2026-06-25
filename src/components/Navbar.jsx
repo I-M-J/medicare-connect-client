@@ -168,7 +168,7 @@ export default function Navbar() {
                         {session?.user && (
                             <button
                                 onClick={() => setMenuOpen(!menuOpen)}
-                                className="flex items-center gap-2 px-2 py-1.5 rounded-xl border border-sky-200 dark:border-sky-800 hover:bg-sky-50 dark:hover:bg-sky-900/20 transition-all"
+                                className="flex items-center rounded-full border border-sky-200 dark:border-sky-800 hover:bg-sky-50 dark:hover:bg-sky-900/20 transition-all p-0.5"
                             >
                                 {session.user.image ? (
                                     <img
@@ -182,9 +182,6 @@ export default function Navbar() {
                                         {session.user.name?.[0]?.toUpperCase() || "U"}
                                     </div>
                                 )}
-                                <span className="text-sm font-medium text-gray-700 dark:text-gray-200 max-w-[80px] truncate">
-                                    {session.user.name?.split(" ")[0]}
-                                </span>
                             </button>
                         )}
                         <button
