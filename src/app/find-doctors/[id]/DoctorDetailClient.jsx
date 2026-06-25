@@ -23,7 +23,7 @@ export default function DoctorDetailClient({ doctor, reviews }) {
                     {/* Profile Card */}
                     <div className="bg-white dark:bg-gray-900 rounded-2xl border border-gray-100 dark:border-gray-800 shadow-sm p-6 lg:p-8 mb-6">
                         <div className="flex flex-col sm:flex-row gap-6">
-                            <div className="w-28 h-28 rounded-2xl overflow-hidden flex-shrink-0 bg-sky-100 dark:bg-sky-900/30">
+                            <div className="w-28 h-28 rounded-2xl overflow-hidden shrink-0 bg-sky-100 dark:bg-sky-900/30">
                                 <img
                                     src={doctor.image || `https://ui-avatars.com/api/?name=${encodeURIComponent(doctor.doctorName || "Dr")}&background=0ea5e9&color=fff&size=128`}
                                     alt={doctor.doctorName}

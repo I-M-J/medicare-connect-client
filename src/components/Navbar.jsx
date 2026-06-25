@@ -54,7 +54,7 @@ export default function Navbar() {
                 <div className="flex items-center justify-between h-16">
                     {/* Logo */}
                     <Link href="/" className="flex items-center gap-2.5">
-                        <div className="w-9 h-9 rounded-xl bg-gradient-to-br from-sky-500 to-cyan-400 flex items-center justify-center shadow-md">
+                        <div className="w-9 h-9 rounded-xl bg-linear-to-br from-sky-500 to-cyan-400 flex items-center justify-center shadow-md">
                             <Stethoscope className="w-5 h-5 text-white" />
                         </div>
                         <span className="font-bold text-xl text-sky-600 dark:text-sky-400 tracking-tight">

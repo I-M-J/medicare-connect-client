@@ -33,7 +33,7 @@ export default function FeaturedDoctors({ doctors }) {
                                 className="bg-white dark:bg-gray-900 border border-gray-100 dark:border-gray-800 rounded-2xl p-5 shadow-sm hover:shadow-md hover:border-sky-200 dark:hover:border-sky-800 transition-all group"
                             >
                                 <div className="flex items-center gap-4 mb-4">
-                                    <div className="w-16 h-16 rounded-2xl overflow-hidden flex-shrink-0 bg-sky-100 dark:bg-sky-900/20">
+                                    <div className="w-16 h-16 rounded-2xl overflow-hidden shrink-0 bg-sky-100 dark:bg-sky-900/20">
                                         <img
                                             src={doctor.image || `https://ui-avatars.com/api/?name=${encodeURIComponent(doctor.doctorName || "Dr")}&background=0ea5e9&color=fff`}
                                             alt={doctor.doctorName}
@@ -52,7 +52,7 @@ export default function FeaturedDoctors({ doctors }) {
                                         </div>
                                     </div>
                                     {doctor.verificationStatus === "verified" && (
-                                        <Award className="w-5 h-5 text-emerald-500 flex-shrink-0" />
+                                        <Award className="w-5 h-5 text-emerald-500 shrink-0" />
                                     )}
                                 </div>
 

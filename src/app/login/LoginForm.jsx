@@ -66,7 +66,7 @@ export default function LoginForm() {
     };
 
     return (
-        <div className="min-h-[calc(100vh-4rem)] flex items-center justify-center py-12 px-4 bg-gradient-to-br from-sky-50 to-white dark:from-gray-950 dark:to-gray-900">
+        <div className="min-h-[calc(100vh-4rem)] flex items-center justify-center py-12 px-4 bg-linear-to-br from-sky-50 to-white dark:from-gray-950 dark:to-gray-900">
             <motion.div
                 initial={{ opacity: 0, y: 24 }}
                 animate={{ opacity: 1, y: 0 }}
@@ -77,7 +77,7 @@ export default function LoginForm() {
                 <div className="bg-white dark:bg-gray-900 rounded-3xl shadow-xl shadow-sky-100 dark:shadow-sky-900/10 border border-gray-100 dark:border-gray-800 p-8">
                     {/* Header */}
                     <div className="text-center mb-8">
-                        <div className="w-14 h-14 bg-gradient-to-br from-sky-500 to-cyan-400 rounded-2xl flex items-center justify-center mx-auto mb-4 shadow-lg">
+                        <div className="w-14 h-14 bg-linear-to-br from-sky-500 to-cyan-400 rounded-2xl flex items-center justify-center mx-auto mb-4 shadow-lg">
                             <Stethoscope className="w-7 h-7 text-white" />
                         </div>
                         <h1 className="text-2xl font-bold text-gray-900 dark:text-white">Welcome back</h1>

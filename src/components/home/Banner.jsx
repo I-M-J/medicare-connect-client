@@ -6,7 +6,7 @@ import { ArrowRight, CalendarCheck, ShieldCheck, Star } from "lucide-react";
 
 export default function Banner() {
     return (
-        <section className="relative overflow-hidden bg-gradient-to-br from-sky-50 via-white to-cyan-50 dark:from-gray-950 dark:via-gray-900 dark:to-sky-950 py-20 lg:py-28">
+        <section className="relative overflow-hidden bg-linear-to-br from-sky-50 via-white to-cyan-50 dark:from-gray-950 dark:via-gray-900 dark:to-sky-950 py-20 lg:py-28">
             {/* Background decorative blobs */}
             <div className="absolute -top-32 -right-32 w-96 h-96 bg-sky-200 dark:bg-sky-900/30 rounded-full blur-3xl opacity-50 pointer-events-none" />
             <div className="absolute -bottom-32 -left-32 w-96 h-96 bg-cyan-200 dark:bg-cyan-900/30 rounded-full blur-3xl opacity-40 pointer-events-none" />
@@ -27,7 +27,7 @@ export default function Banner() {
 
                             <h1 className="text-4xl md:text-5xl lg:text-6xl font-extrabold text-gray-900 dark:text-white leading-tight mb-5">
                                 Your Health,{" "}
-                                <span className="text-transparent bg-clip-text bg-gradient-to-r from-sky-500 to-cyan-400">
+                                <span className="text-transparent bg-clip-text bg-linear-to-r from-sky-500 to-cyan-400">
                                     Our Priority
                                 </span>
                             </h1>

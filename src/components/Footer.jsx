@@ -27,7 +27,7 @@ export default function Footer() {
                     {/* Brand */}
                     <div className="space-y-5">
                         <Link href="/" className="flex items-center gap-2.5">
-                            <div className="w-9 h-9 rounded-xl bg-gradient-to-br from-sky-500 to-cyan-400 flex items-center justify-center shadow-md">
+                            <div className="w-9 h-9 rounded-xl bg-linear-to-br from-sky-500 to-cyan-400 flex items-center justify-center shadow-md">
                                 <Stethoscope className="w-5 h-5 text-white" />
                             </div>
                             <span className="font-bold text-xl text-sky-400 tracking-tight">
@@ -93,15 +93,15 @@ export default function Footer() {
                         <h3 className="text-sm font-semibold text-sky-400 uppercase tracking-wider mb-5">Contact Us</h3>
                         <ul className="space-y-4">
                             <li className="flex items-start gap-3">
-                                <MapPin className="w-4 h-4 text-sky-400 mt-0.5 flex-shrink-0" />
+                                <MapPin className="w-4 h-4 text-sky-400 mt-0.5 shrink-0" />
                                 <span className="text-sm text-gray-400">123 Healthcare Avenue, Medical District, Dhaka, BD</span>
                             </li>
                             <li className="flex items-center gap-3">
-                                <Phone className="w-4 h-4 text-sky-400 flex-shrink-0" />
+                                <Phone className="w-4 h-4 text-sky-400 shrink-0" />
                                 <a href="tel:+8801712345678" className="text-sm text-gray-400 hover:text-sky-400 transition-colors">+880 171 234 5678</a>
                             </li>
                             <li className="flex items-center gap-3">
-                                <Mail className="w-4 h-4 text-sky-400 flex-shrink-0" />
+                                <Mail className="w-4 h-4 text-sky-400 shrink-0" />
                                 <a href="mailto:support@medicareconnect.com" className="text-sm text-gray-400 hover:text-sky-400 transition-colors">support@medicareconnect.com</a>
                             </li>
                         </ul>

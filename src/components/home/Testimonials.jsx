@@ -59,7 +59,7 @@ export default function Testimonials({ testimonials }) {
                             </div>
 
                             <p className="text-gray-600 dark:text-gray-300 text-sm leading-relaxed mb-5">
-                                &ldquo;{item.comment || item.review}&rdquo;
+                                &ldquo;{item.comment}&rdquo;
                             </p>
 
                             <div className="flex items-center gap-3">
