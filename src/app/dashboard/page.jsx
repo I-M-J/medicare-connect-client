@@ -11,6 +11,17 @@ export default async function DashboardPage() {
         redirect("/login");
     }
 
+    try {
+        const SERVER_URL = process.env.NEXT_PUBLIC_SERVER_URL || "http://localhost:5000";
+        await fetch(`${SERVER_URL}/users/sync-role`, {
+            method: "POST",
+            headers: { "Content-Type": "application/json" },
+            body: JSON.stringify({ email: session.user.email }),
+        });
+    } catch (error) {
+        console.error("Failed to sync user role:", error);
+    }
+
     const role = session.user?.role || "patient";
 
     if (role === "admin") {
