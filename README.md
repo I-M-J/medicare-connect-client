@@ -1,73 +1,80 @@
-# MediCare Connect - Client
+# 🏥 MediCare Connect - Client Application
 
-A modern, full-stack healthcare appointment and management system.
+![Next.js](https://img.shields.io/badge/Next.js-14-black?logo=next.js)
+![TailwindCSS](https://img.shields.io/badge/TailwindCSS-4-38B2AC?logo=tailwind-css)
+![Better-Auth](https://img.shields.io/badge/Better--Auth-Security-blue)
+![Stripe](https://img.shields.io/badge/Stripe-Payments-6772E5?logo=stripe)
 
-## 🚀 Features
+A modern, highly responsive, and full-stack healthcare appointment and management system designed to seamlessly connect patients, doctors, and administrators. Built with Next.js App Router, this application prioritizes user experience, security, and performance.
 
-- **Authentication**: JWT-based authentication using Better-Auth.
-- **Role-based Dashboards**: Custom interfaces for Patients, Doctors, and Admins.
-- **Doctor Discovery**: Search, filter by specialty, and sort by fee/rating.
-- **Appointments**: Two-step booking modal with Stripe payment integration.
-- **Analytics**: Admin dashboard with Recharts for visual data representation.
-- **Dark Mode**: Fully supported using `next-themes`.
-- **Animations**: Smooth transitions powered by Framer Motion.
+## ✨ Key Features
+
+- **Robust Authentication**: Secure, modern authentication powered by Better-Auth with JWTs. Supports both Email/Password and Google OAuth seamless sign-ins.
+- **Role-Based Dashboards**: 
+  - **Patients**: Manage bookings, view medical records, prescriptions, and payment history.
+  - **Doctors**: Manage schedules, approve appointments, issue prescriptions, and view patient reviews.
+  - **Admins**: Platform oversight with comprehensive analytics, user management, and doctor verification.
+- **Advanced Discovery**: Powerful search and filtering capabilities to find doctors by specialty, fee, and user ratings.
+- **Integrated Payments**: Frictionless two-step booking modal with secure Stripe payment processing.
+- **Data Visualization**: Interactive and insightful Admin dashboard charts powered by Recharts.
+- **Modern UI/UX**: Fully responsive design with Next-Themes for seamless Dark/Light mode switching and Framer Motion for fluid micro-animations.
 
 ## 🛠️ Tech Stack
 
 - **Framework**: Next.js (App Router)
-- **Styling**: Tailwind CSS
-- **Animations**: Framer Motion
+- **Styling**: Tailwind CSS & Framer Motion
 - **Icons**: Lucide React
-- **Payments**: Stripe Checkout
-- **Charts**: Recharts
-- **Auth**: Better-Auth
+- **Payments Integration**: Stripe Checkout
+- **Data Visualization**: Recharts
+- **Authentication**: Better-Auth
 
-## 📦 Setup & Run
+## 📦 Local Setup & Installation
 
-1. Clone the repository and navigate to the client folder.
+1. Clone the repository and navigate to the client directory.
 2. Install dependencies:
    ```bash
    npm install
    ```
-3. Set up your `.env.local`:
+3. Set up your environment variables by creating a `.env.local` file:
    ```env
    NEXT_PUBLIC_SERVER_URL=http://localhost:5000
    NEXT_PUBLIC_STRIPE_PUBLISHABLE_KEY=pk_test_...
    ```
-4. Run the development server:
+4. Start the development server:
    ```bash
    npm run dev
    ```
 5. Open [http://localhost:3000](http://localhost:3000) in your browser.
 
-## 👥 User Roles & Demo Accounts
+## 👥 Demo Accounts & User Roles
 
-This project is pre-populated with a rich, relational database of doctors, patients, appointments, payments, reviews, and prescriptions. You can log in with any of the following credentials to test different user flows:
+This project is pre-populated with a rich, relational database to demonstrate real-world usage. You can log in with any of the following credentials to explore different user flows:
 
-### 🔑 Administrator Account
-* **Role**: Admin
+### 🔑 Administrator
 * **Email**: `admin@medicare.com`
 * **Password**: `Admin@12345`
-* **Key Features**: View platform-wide statistics/charts (users, doctors, revenue, appointments), manage user accounts, verify or reject pending doctor applications.
+* **Features**: View platform-wide statistics (users, doctors, revenue, appointments), manage accounts, and verify pending doctor applications.
 
-### 🩺 Doctor Accounts
+### 🩺 Doctors
 All doctors have pre-configured hospital affiliations, experience, consultation fees, and available slots.
 
-| Name | Email | Password | Specialization | Verification Status | Features to Test |
+| Name | Email | Password | Specialization | Status | Key Features to Test |
 | :--- | :--- | :--- | :--- | :--- | :--- |
-| **Dr. John Doe** | `dr.john@medicare.com` | `Doctor@123` | Cardiology | Verified | View active appointments, issue prescriptions, read reviews. |
-| **Dr. Sarah Jenkins** | `dr.sarah@medicare.com` | `Doctor@123` | Pediatrics | Verified | Manage appointments, view ratings. |
+| **Dr. John Doe** | `dr.john@medicare.com` | `Doctor@123` | Cardiology | Verified | View active appointments, issue prescriptions. |
+| **Dr. Sarah Jenkins**| `dr.sarah@medicare.com`| `Doctor@123` | Pediatrics | Verified | Manage appointments, view patient ratings. |
 | **Dr. Robert Chen** | `dr.robert@medicare.com` | `Doctor@123` | Neurology | Verified | View prescription history, manage schedules. |
-| **Dr. Lisa Wong** | `dr.lisa@medicare.com` | `Doctor@123` | General Medicine | Verified | Multi-day slot availability, view reviews. |
+| **Dr. Lisa Wong** | `dr.lisa@medicare.com` | `Doctor@123` | General Medicine | Verified | Multi-day slot availability. |
 | **Dr. Alex Mercer** | `dr.alex@medicare.com` | `Doctor@123` | Dermatology | **Pending** | View the restricted "Pending Verification" screen. |
 
-### 👤 Patient Accounts
+### 👤 Patients
 These accounts contain mock health records, payment history, and scheduled bookings.
 
-| Name | Email | Password | Existing Data / Patient History |
+| Name | Email | Password | Patient History |
 | :--- | :--- | :--- | :--- |
-| **Emily Watson** | `patient.emily@medicare.com` | `Patient@123` | Has a completed appointment with Dr. John, a prescription for hypertension, and an active review. |
-| **David Miller** | `patient.david@medicare.com` | `Patient@123` | Has a pending appointment with Dr. Sarah and a cancelled/refunded booking. |
-| **James Wilson** | `patient.james@medicare.com` | `Patient@123` | Has a neurology consult history with Dr. Robert and a medication prescription. |
-| **Sophia Martinez** | `patient.sophia@medicare.com` | `Patient@123` | Has a newly booked pending appointment with Dr. Lisa. |
+| **Emily Watson** | `patient.emily@medicare.com` | `Patient@123` | Completed appointment with Dr. John, active prescription, and review. |
+| **David Miller** | `patient.david@medicare.com` | `Patient@123` | Pending appointment with Dr. Sarah and a refunded booking. |
+| **James Wilson** | `patient.james@medicare.com` | `Patient@123` | Neurology consult history with Dr. Robert and medication prescription. |
+| **Sophia Martinez**| `patient.sophia@medicare.com`| `Patient@123` | Newly booked pending appointment with Dr. Lisa. |
 
+---
+*Designed and built as a comprehensive portfolio project showcasing modern full-stack development best practices.*
