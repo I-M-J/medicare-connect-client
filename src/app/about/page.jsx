@@ -28,7 +28,7 @@ export default function AboutPage() {
                         { label: "Consultations", value: "100k+", icon: HeartPulse },
                         { label: "Awards Won", value: "15+", icon: Award }
                     ].map((stat, i) => (
-                        <motion.div 
+                        <motion.div
                             key={i}
                             initial={{ opacity: 0, y: 20 }}
                             whileInView={{ opacity: 1, y: 0 }}
@@ -68,19 +68,19 @@ export default function AboutPage() {
                                 </div>
                             </div>
                         </motion.div>
-                        <motion.div 
-                            initial={{ opacity: 0, x: 20 }} 
-                            whileInView={{ opacity: 1, x: 0 }} 
+                        <motion.div
+                            initial={{ opacity: 0, x: 20 }}
+                            whileInView={{ opacity: 1, x: 0 }}
                             viewport={{ once: true }}
                             className="relative"
                         >
-                            <div className="aspect-[4/3] rounded-3xl overflow-hidden bg-gray-200 dark:bg-gray-800 relative">
-                                <Image src="https://images.unsplash.com/photo-1538108149393-cecf8dac44df?ixlib=rb-4.0.3&auto=format&fit=crop&w=1200&q=80" alt="Medical Team" fill className="object-cover" />
+                            <div className="aspect-4/3 rounded-3xl overflow-hidden bg-gray-200 dark:bg-gray-800 relative">
+                                <Image src="https://plus.unsplash.com/premium_photo-1681843126728-04eab730febe" alt="Medical Team" fill className="object-cover" />
                             </div>
                             <div className="absolute -bottom-6 -left-6 bg-white dark:bg-gray-900 p-6 rounded-3xl shadow-xl border border-gray-100 dark:border-gray-800 hidden md:block">
                                 <div className="flex -space-x-4">
-                                    {[1,2,3,4].map(i => (
-                                        <img key={i} src={`https://i.pravatar.cc/100?img=${i+10}`} alt="Doctor" className="w-12 h-12 rounded-full border-2 border-white dark:border-gray-900" />
+                                    {[1, 2, 3, 4].map(i => (
+                                        <img key={i} src={`https://i.pravatar.cc/100?img=${i + 10}`} alt="Doctor" className="w-12 h-12 rounded-full border-2 border-white dark:border-gray-900" />
                                     ))}
                                     <div className="w-12 h-12 rounded-full border-2 border-white dark:border-gray-900 bg-gray-100 dark:bg-gray-800 flex items-center justify-center text-xs font-bold text-gray-500">+2k</div>
                                 </div>
